@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Healthcare Outcome Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-4" style="max-width:600px">
+        <h2 class="mb-4">Healthcare Outcome Prediction</h2>
+        <a href="/" class="btn btn-secondary btn-sm mb-3">← Back</a>
+        <form method="POST" class="card p-4 shadow">
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" name="age" class="form-control" min="0" max="120" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select name="gender" class="form-select" required>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Diagnosis</label>
+                <select name="diagnosis" class="form-select" required>
+                    <option value="0">Asthma</option>
+                    <option value="1">Cancer</option>
+                    <option value="2">Cardiac Arrest</option>
+                    <option value="3">Diabetes</option>
+                    <option value="4">Hypertension</option>
+                    <option value="5">Kidney Stones</option>
+                    <option value="6">Pneumonia</option>
+                    <option value="7">Stroke</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Admission Date</label>
+                <input type="date" name="admission_date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Discharge Date</label>
+                <input type="date" name="discharge_date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Treatment Type</label>
+                <select name="treatment_type" class="form-select" required>
+                    <option value="0">Inhalation Therapy</option>
+                    <option value="1">Insulin Therapy</option>
+                    <option value="2">Medication</option>
+                    <option value="3">Surgery</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Hospital Cost ($)</label>
+                <input type="number" step="0.01" name="hospital_cost" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Predict</button>
+        </form>
+        {% if result %}
+        <div class="alert alert-success mt-4 text-center fs-5">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

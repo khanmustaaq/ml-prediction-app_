@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>E-Commerce Order Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-4" style="max-width:600px">
+        <h2 class="mb-4">E-Commerce Order Prediction</h2>
+        <a href="/" class="btn btn-secondary btn-sm mb-3">← Back</a>
+        <form method="POST" class="card p-4 shadow">
+            <div class="mb-3">
+                <label class="form-label">Product Category</label>
+                <select name="product_category" class="form-select" required>
+                    <option value="0">Beauty</option>
+                    <option value="1">Books</option>
+                    <option value="2">Electronics</option>
+                    <option value="3">Fashion</option>
+                    <option value="4">Grocery</option>
+                    <option value="5">Home & Kitchen</option>
+                    <option value="6">Sports</option>
+                    <option value="7">Toys</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Quantity</label>
+                <input type="number" name="quantity" class="form-control" min="1" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Unit Price ($)</label>
+                <input type="number" step="0.01" name="unit_price" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Total Amount ($)</label>
+                <input type="number" step="0.01" name="total_amount" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Payment Method</label>
+                <select name="payment_method" class="form-select" required>
+                    <option value="0">Cash on Delivery</option>
+                    <option value="1">Credit Card</option>
+                    <option value="2">Debit Card</option>
+                    <option value="3">Net Banking</option>
+                    <option value="4">UPI</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Predict</button>
+        </form>
+        {% if result %}
+        <div class="alert alert-warning mt-4 text-center fs-5">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
